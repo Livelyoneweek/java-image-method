@@ -1,3 +1,3 @@
 ---
 
-### Breadcrumbsjava-image-method
+### java-image-method
