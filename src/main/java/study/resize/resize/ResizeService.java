@@ -106,6 +106,11 @@ public class ResizeService {
         if (originalImage.getType() != newType) {
             BufferedImage newImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight(), newType);
             Graphics2D g = newImage.createGraphics();
+
+            // 투명도를 지원하지 않는 JPEG 형식에 대비하여 흰색 배경으로 채움
+            g.setColor(Color.WHITE); // 흰색 배경
+            g.fillRect(0, 0, newImage.getWidth(), newImage.getHeight());
+
             g.drawImage(originalImage, 0, 0, null);
             g.dispose();
             return newImage;
